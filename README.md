@@ -7,7 +7,7 @@ The simplest way to find work or talent — instantly.
 - **Frontend**: Next.js 14+ with TypeScript
 - **Styling**: TailwindCSS
 - **Backend**: Supabase (Auth, Database, Storage, Real-time)
-- **Deployment**: Netlify
+- **Deployment**: Vercel
 
 ## Getting Started
 
@@ -51,32 +51,35 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-## Deployment to Netlify
+## Deployment to Vercel
 
 1. **Push your code to GitHub**
+   - Make sure your code is pushed to the repository: `https://github.com/arsbux/swift.git`
 
-2. **Deploy to Netlify:**
-   - Go to [netlify.com](https://netlify.com)
-   - Import your GitHub repository
-   - Build settings (auto-detected from `netlify.toml`):
-     - Build command: `npm run build`
-     - Publish directory: `.next`
-   - Add environment variables in Netlify dashboard:
-     - `NEXT_PUBLIC_SUPABASE_URL`
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-     - `ANTHROPIC_API_KEY` (for AI search feature)
-     - `ADMIN_EMAILS` (comma-separated list of admin emails)
-   - Deploy!
+2. **Deploy to Vercel:**
+   - Go to [vercel.com](https://vercel.com)
+   - Sign in with your GitHub account
+   - Click "Add New Project"
+   - Import your GitHub repository: `arsbux/swift`
+   - Vercel will auto-detect Next.js (no configuration needed)
+   - Add environment variables in Vercel dashboard:
+     - `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+     - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon/public key
+     - `ANTHROPIC_API_KEY` - Your Anthropic API key (for AI search feature)
+     - `ADMIN_EMAILS` - Comma-separated list of admin emails (e.g., `admin@example.com,another@example.com`)
+   - Click "Deploy"
 
 3. **Configure custom domain:**
-   - In Netlify dashboard, go to Site settings > Domain management
+   - After deployment, go to Project Settings > Domains
    - Add custom domain: `swift.flightlabs.agency`
-   - Follow Netlify's DNS configuration instructions
+   - Follow Vercel's DNS configuration instructions
+   - Vercel will automatically provision SSL certificates
 
 4. **Update Supabase redirect URLs:**
    - In Supabase dashboard, go to Authentication > URL Configuration
    - Add production URL: `https://swift.flightlabs.agency/auth/callback`
    - Update Site URL to: `https://swift.flightlabs.agency`
+   - If using Vercel preview URLs, also add: `https://*.vercel.app/auth/callback`
 
 ## Features
 
