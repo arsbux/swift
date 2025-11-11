@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Netlify automatically detects Next.js and handles routing
+# Custom domain: swift.flightlabs.agency
+# Make sure to add environment variables in Netlify dashboard:
+# - NEXT_PUBLIC_SUPABASE_URL
+# - NEXT_PUBLIC_SUPABASE_ANON_KEY
+# - ANTHROPIC_API_KEY
+# - ADMIN_EMAILS
+
